@@ -19,7 +19,7 @@ import com.codenotfound.kafka.producer.Sender;
     topics = {SpringKafkaApplicationTest.HELLOWORLD_TOPIC})
 public class SpringKafkaApplicationTest {
 
-  static final String HELLOWORLD_TOPIC = "helloworld.t";
+  static final String HELLOWORLD_TOPIC = "tcrmafiliacion";
 
   @Autowired
   private Receiver receiver;
