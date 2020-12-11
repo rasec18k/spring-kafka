@@ -9,7 +9,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.kafka.test.context.EmbeddedKafka;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit4.SpringRunner;
-import com.codenotfound.kafka.consumer.Receiver;
 import com.codenotfound.kafka.producer.Sender;
 
 @RunWith(SpringRunner.class)
@@ -21,17 +20,8 @@ public class SpringKafkaApplicationTest {
 
   static final String HELLOWORLD_TOPIC = "tcrmafiliacion";
 
-  @Autowired
-  private Receiver receiver;
 
   @Autowired
   private Sender sender;
 
-  @Test
-  public void testReceive() throws Exception {
-    sender.send("Hello Spring Kafka!");
-
-    receiver.getLatch().await(10000, TimeUnit.MILLISECONDS);
-    assertThat(receiver.getLatch().getCount()).isEqualTo(0);
-  }
 }
