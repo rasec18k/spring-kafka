@@ -17,7 +17,7 @@ public class SpringKafkaApplication {
     SpringApplication.run(SpringKafkaApplication.class, args);
 
       Properties properties = new Properties();
-      properties.put("bootstrap.servers", "srvbossqa.vntsasqa.lan:9092");
+      properties.put("bootstrap.servers", "nlb-SAS-CRM-Busqa-0ffe95e3af3e1798.elb.us-east-1.amazonaws.com:9092");
       properties.put("connections.max.idle.ms", 10000);
       properties.put("request.timeout.ms", 5000);
       try (AdminClient client = KafkaAdminClient.create(properties))
@@ -37,6 +37,12 @@ public class SpringKafkaApplication {
       {
           // Kafka is not available
           System.err.println("Kakfka is not available");
+      }
+
+      try {
+          Thread.sleep(5000);
+      } catch (InterruptedException e) {
+          e.printStackTrace();
       }
   }
 }
